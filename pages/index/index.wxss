@@ -1,0 +1,30 @@
+.list{
+    display: flex;
+    justify-content: space-between;
+    margin-top:64rpx;
+}
+.list-item{
+    width: 320rpx;
+    padding:71rpx 0;
+    height: 98rpx;
+    text-align: center;
+    background-image: linear-gradient(63deg, #5E61FF 0%, #3D79FF 49%, #208EFF 92%);
+    box-shadow: 0 4px 10px 0 rgba(0,71,160,0.45);
+    border-radius: 8px;
+}
+.check-img{
+    width:98rpx;
+    height:98rpx;
+}
+.order-img{
+    width:95rpx;
+    height:95rpx;
+}
+.font{
+    margin-top:26rpx;
+    text-align: center;
+    font-size:36rpx;
+    color: rgba(0,0,0,0.85);
+    line-height:50rpx;
+}
+

@@ -1,0 +1,16 @@
+<view class="px-4">
+  <view class='list'>
+    <view>
+        <navigator url='/pages/verifyList/verifyList' class='list-item'>
+            <image class="check-img" src='../../img/check.png'></image>
+        </navigator>
+        <view class='font'>审核认证</view>
+    </view>
+    <view>
+        <navigator url='/pages/order/order' class='list-item'>
+            <image class="order-img" src='../../img/order.png'></image>
+        </navigator>
+        <view class='font'>交易记录</view>
+    </view> 
+  </view>
+</view>

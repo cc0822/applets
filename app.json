@@ -1,0 +1,17 @@
+{
+    "pages": [
+        "pages/order/order",
+        "pages/login/login",
+        "pages/index/index",
+        "pages/verifyList/verifyList",
+        "pages/verify/verify",
+        "pages/orderDetail/orderDetail",
+        "pages/fuzzySearch/fuzzySearch"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "朔维健康",
+        "navigationBarTextStyle": "black"
+    }
+}

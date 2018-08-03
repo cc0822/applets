@@ -1,0 +1,22 @@
+<wxs module="filter" src="../../filter/filter.wxs"></wxs>
+<import src="../../templates/check.wxml" />
+
+<view>
+    <image src="{{imgSrc}}" alt="身份证照片" bindload="imageLoad" style='width:{{imgWidth}}rpx;height:{{imgHeight}}rpx;'></image>
+</view>
+<view class='section'>
+    <view class="personInfo">
+        <view class='text'>录入姓名：{{model.inName}}</view>
+        <view class='text'>识别姓名：{{model.outName}}</view>       
+        <template is="{{filter.equalTo(model.inName,model.outName) ? 'equal' : 'notEqual'}}"></template>
+    </view>
+    <view class="personInfo">    
+        <view class='text'>录入身份证号：{{model.inIdCard}}</view>
+        <view class='text'>识别身份证号：{{model.outIdCard}}</view>
+        <template is="{{filter.equalTo(model.inIdCard,model.outIdCard) ? 'equal' : 'notEqual'}}"></template>
+    </view>
+    <view class='btnGroup mt-2'>
+        <button class='btn check-fail' bindtap='checkFail'>审核失败</button>
+        <button class='btn check-success' bindtap='checkPass'>审核通过</button>
+    </view>
+</view>

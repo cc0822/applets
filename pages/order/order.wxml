@@ -1,0 +1,211 @@
+<wxs module="filter" src="../../filter/filter.wxs"></wxs>
+
+<view class='container'>
+    <!-- 筛选框 -->
+    <view id="tab">
+        <view class="tab">
+            <view class="tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="tabNav">{{first}}
+                <image class="arrow-icon" src="{{currentTab==0 ? '../../img/top-arrow.png' : '../../img/down-arrow.png'}}"></image>
+            </view>
+            <view class="tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="tabNav">
+                {{second}}
+                <image class="arrow-icon" src="{{currentTab==1 ? '../../img/top-arrow.png' : '../../img/down-arrow.png'}}"></image>
+            </view>
+            <view class="tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="tabNav">{{thirds}}
+                <image class="arrow-icon" src="{{currentTab==2 ? '../../img/top-arrow.png' : '../../img/down-arrow.png'}}"></image>
+            </view>
+            <view class='search' bindtap='search'>
+                <image class="search-icon" src='../../img/search.png'></image> 
+            </view>
+        </view>
+        <view class='tab-item' style='display:{{displays}}'>
+            <view class="filter {{currentTab==0 ? 'shown' : 'hidden'}}">
+                <view class="shaixuankuang ">
+                    <view class="shaixuan">
+                        <span class="shuaixuantiaojian">订单类型</span>
+                        <block wx:for="{{subjects}}" wx:key="index" wx:for-item="item">
+                            <view class="chose-txt {{item.id == subject ? 'chosed' : ''}}" data-id="{{item.id}}" bindtap="clickSubject">
+                                <text class="chose-p">{{item.name}}</text>
+                            </view>
+                        </block>
+                    </view>
+                    <view class="shaixuan">
+                        <span class="shuaixuantiaojian">支付时间:</span>
+                        <view>
+                            <picker mode="date" value="{{payStartTime}}" bindchange="startDateChange">
+                                <view class="payTime">
+                                    <text class="chose-p">{{payStartTime}}</text>
+                                </view>
+                            </picker>
+                            <picker mode="date" value="{{payEndTime}}" bindchange="endDateChange">
+                                <view class="payTime">
+                                    <text class="chose-p">{{payEndTime}}</text>
+                                </view>
+                            </picker>
+                        </view>
+                    </view>
+                    <view class="shaixuan">
+                        <span class="shuaixuantiaojian">退款状态</span>
+                        <block wx:for="{{refundStatuses}}" wx:key="key">
+                            <view class="chose-txt {{item.id == refundStatus ? 'chosed' : ''}}" data-id="{{item.id}}" bindtap="clickRefund">
+                                <text class="chose-p">{{item.name}}</text>
+                            </view>
+                        </block>
+                    </view>
+
+                </view>
+                <view class="btn-group">
+                    <view class="reset" bindtap="reset">重置</view>
+                    <view class="queren" bindtap="submit">确定</view>
+                </view>
+            </view>
+
+            <view class="location_bottom {{currentTab==1 ? 'shown' : 'hidden'}}">
+                <block wx:for="{{payMethods}}" wx:key="index" wx:for-item="item">
+                    <view class="{{item.id == payMethod?'add-one':'add-all'}}" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="clickMethod">
+                        {{item.name}}
+                    </view>
+                </block>
+            </view>
+            <view class="location_bottom {{currentTab==2 ? 'shown' : 'hidden'}}">
+                <block wx:for="{{payTypes}}" wx:key="index" wx:for-item="item">
+                    <view class="{{item.id == payType?'add-one':'add-all'}}" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="clickType">
+                        {{item.name}}</view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <!-- 遮罩层 -->
+    <view class="swiper-beijing" bindtap="hideNav" style='display:{{displays}}'></view>
+    <!-- 订单列表 -->
+    <view class='order-list'>
+        <block wx:for="{{orderList}}" wx:key="index" wx:for-item="item">
+            <view class='order-item' bindtap='toggleBtn' id="{{index}}">
+                <view class='order-img'>
+                    <image src='../../img/che.png'></image>
+                </view>
+                <view class='order-info'>
+                    <view class='base-info'>
+                        <view class='name'>{{item.name}}</view>
+                        <view class='subject'>{{item.subjectName}}</view>
+                        <view class='cost'>{{item.payAmount}}</view>
+                    </view>
+                    <view class='other-info'>
+                        <text decode="{{true}}">{{item.payTime}}&nbsp;&nbsp;&nbsp;&nbsp;</text>
+                        <text>{{filter.payTypeRender(item.payType)}}</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <view id="tab">
+    <view class="tab">
+        <view class="tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="tabNav">{{first}}
+            <i></i>
+        </view>
+        <view class="tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="tabNav">{{second}}
+            <i></i>
+        </view>
+        <view class="tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="tabNav">{{thirds}}
+            <i></i>
+        </view>
+    </view>
+    <view class='tab-item' style='display:{{displays}}'>
+        <view class="location_bottom {{currentTab==0 ? 'shown' : 'hidden'}}">
+            <block wx:for="{{payMethods}}" wx:key="index" wx:for-item="item">
+                <view class="{{item.id == payMethod?'add_citying':'add_city'}}" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="clickMethod">
+                    {{item.name}}
+                </view>
+            </block>
+        </view>
+        <view class="location_bottom {{currentTab==1 ? 'shown' : 'hidden'}}">
+            <block wx:for="{{payTypes}}" wx:key="index" wx:for-item="item">
+                <view class="{{item.id == payType?'add_citying':'add_city'}}" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="clickType">
+                    {{item.name}}</view>
+            </block>
+        </view>
+        <view class="shaixuankuang {{currentTab==2 ? 'shown' : 'hidden'}}">
+            <view class="shaixuan">
+                <span class="shuaixuantiaojian">订单类型</span>
+                <block wx:for="{{subjects}}" wx:key="index" wx:for-item="item">
+                    <view class="chose-txt" data-id="{{item.id}}" bindtap="clickSubject" style="{{item.id == subject?' border:1rpx solid #e8580c; color: #e8580c':'border:1rpx solid gainsboro;color:gray'}}">
+                        <text class="chose-p">{{item.name}}</text>
+                    </view>
+                </block>
+            </view>
+            <view class="shaixuan">
+                <span class="shuaixuantiaojian">支付时间:</span>
+                <view>
+                    <picker mode="date" value="{{payStartTime}}" bindchange="startDateChange">
+                        <view class="payTime"><text class="chose-p">{{payStartTime}}</text></view>
+                    </picker>
+                    <picker mode="date" value="{{payEndTime}}" bindchange="endDateChange">
+                        <view class="payTime"><text class="chose-p">{{payEndTime}}</text></view>
+                    </picker>
+                </view>
+            </view>
+            <view class="shaixuan">
+                <span class="shuaixuantiaojian">退款状态</span>
+                <block wx:for="{{refundStatuses}}" wx:key="key">
+                    <view class="chose-txt" data-id="{{item.id}}" bindtap="clickRefund" style="{{item.id == refundStatus?'border:1rpx solid #e8580c; color: #e8580c':'border:1rpx solid gainsboro;color:gray'}}">
+                        <text class="chose-p">{{item.name}}</text>
+                    </view>
+                </block>
+            </view>
+            <view class="qingkong">
+                <span class="tianjian" bindtap="reset">清除条件</span>
+                <p class="queren" bindtap="submit">确认</p>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="swiper-beijing" bindtap="hideNav" style='display:{{displays}}'></view>  -->
+
+<!-- 
+<view class='order-list'>
+        <block wx:for="{{orderList}}" wx:key="index" wx:for-item="item">
+            <view class='card  b-shadow' bindtap='toggleBtn' id="{{index}}">
+                <view class='nearCard px-2'>
+                    <view class='flex justify-content-between'>
+                        <text class='c-green'>姓名：{{item.name}}</text>
+                        <text class='c-green'>电话：{{item.phone}}</text>
+                        <text class='c-green'>金额：{{item.payAmount}}</text>
+                    </view>
+                    <view class='flex justify-content-between'>
+                        <text class='c-green'>支付时间：{{item.payTime}}</text>
+                        <text class='c-green'>支付状态：{{filter.payTypeRender(item.payType)}}</text>
+                    </view>
+                    <view>
+                        <text class='c-green'>订单类型：{{item.subjectName}}</text>
+                    </view>
+                </view>
+                <view class='down clearfix {{uhide==index?"":"hidden"}}'>
+                    <view class='ml30'>密保电话：{{item.securityPhone}}</view>
+                    <view class='ml30'>收款方：{{filter.payAccountFr(item.payAccount)}}</view>
+                    <view class='ml30'>支付方式：{{filter.payMethodRender(item.payMethod)}}</view>
+                    <view class='ml30'>下单时间:{{item.payOrderTime}}</view>
+                    <view class='ml30'>退款状态：{{filter.refundStatusRender(item.refundStatus)}}</view>
+                </view>
+            </view>
+        </block>
+    </view> -->

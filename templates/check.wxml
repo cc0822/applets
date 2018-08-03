@@ -1,0 +1,13 @@
+<template name="equal">
+    <view class="text-success">
+        <icon type='success' size='15' class='tip-icon'></icon>
+        <view class='tip-text'>信息匹配</view>
+    </view>
+</template>
+
+<template name="notEqual">
+    <view class="text-fail">
+        <icon type='cancel' size='15' class='tip-icon'></icon>
+        <view class='tip-text'>信息不匹配</view>
+    </view>
+</template>

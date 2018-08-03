@@ -1,0 +1,9 @@
+<wxs module="filter" src="../filter/filter.wxs"></wxs>
+
+<template name="verifyList">
+    <view class="list-item">      
+        <view class='name text'>{{inName}}</view>
+        <view class='text'>{{filter.getIdCard(inIdCard)}}</view>            
+        <navigator url="{{'/pages/verify/verify?id='+id}}" class='detail'>详情</navigator>
+    </view>
+</template>

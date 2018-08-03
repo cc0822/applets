@@ -1,0 +1,78 @@
+//身份证处理
+var IdFr = {
+    getIdCard: function(idCard) {
+        if (!idCard) return;
+        return idCard.substring(0, 6) + '********' + idCard.substring(14);
+    }
+}
+//判断是否相等
+var Equal = {
+    equalTo: function(indata, outdata) {
+        return indata === outdata;
+    }
+}
+//支付状态处理
+var payTypeFr = {
+    payTypeRender: function(payType) {
+        if (payType === 1) {
+            return '扣费';
+        } else if (payType === 2) {
+            return '冻结';
+        } else {
+            return '';
+        }
+    }
+}
+//支付方式处理
+var payMethodFr = {
+    payMethodRender: function(payMethod) {
+        if (payMethod === 1) {
+            return '账户余额';
+        } else if (payMethod === 2) {
+            return '微信';
+        } else if (payMethod === 3) {
+            return '支付宝';
+        } else if (payMethod === 4) {
+            return '银联';
+        } else {
+            return '';
+        }
+    }
+}
+//收款方处理
+var payAccountFr = {
+    payAccountRender: function(payAccount){
+        if (payAccount === 1) {
+            return '一附院';
+        } else if (payAccount === 2) {
+            return '朔维健康';
+        } else {
+            return '';
+        }
+    }
+}
+//退款状态处理
+var refundStatusFr = {
+    refundStatusRender: function(refundStatus){
+        if (refundStatus === 1) {
+            return '未退款';
+        } else if (refundStatus === 2) {
+            return '退款中';
+        } else if (refundStatus === 3) {
+            return '部分退款';
+        } else if (refundStatus === 4) {
+            return '全额退款';
+        } else {
+            return '';
+        }
+    }
+}
+
+module.exports = {
+    getIdCard: IdFr.getIdCard,
+    equalTo: Equal.equalTo,
+    payTypeRender: payTypeFr.payTypeRender,
+    payMethodRender: payMethodFr.payMethodRender,
+    payAccountRender: payAccountFr.payAccountRender,
+    refundStatusRender: refundStatusFr.refundStatusRender
+}
