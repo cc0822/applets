@@ -67,6 +67,23 @@ var refundStatusFr = {
         }
     }
 }
+//预约时间段渲染
+var timePeriodFr = {
+    timePeriodRender: function(params) {
+        result = ''
+        if (params) {
+            result = params.slice(1, params.length - 1)
+            array = result.split('","')
+            year = array[0].split(' ')[0]
+            start = array[0].split(' ')[1]
+            start = start.slice(0, start.length - 3)
+            end = array[1].split(' ')[1]
+            end = end.slice(0, end.length - 3)
+            result = year + ' ' +  start + '至' + end;
+        }
+        return result
+    }
+}
 
 module.exports = {
     getIdCard: IdFr.getIdCard,
@@ -74,5 +91,6 @@ module.exports = {
     payTypeRender: payTypeFr.payTypeRender,
     payMethodRender: payMethodFr.payMethodRender,
     payAccountRender: payAccountFr.payAccountRender,
-    refundStatusRender: refundStatusFr.refundStatusRender
+    refundStatusRender: refundStatusFr.refundStatusRender,
+    timePeriodRender: timePeriodFr.timePeriodRender
 }

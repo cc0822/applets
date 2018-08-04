@@ -1,2 +1,21 @@
-<!--pages/fuzzySearch/fuzzySearch.wxml-->
-<text>pages/fuzzySearch/fuzzySearch.wxml</text>
+<import src="../../templates/registerList.wxml" />
+
+<view class='container'>
+    <view class='search'>
+        <view class="search-input">
+            <icon type="search" size='13'></icon>
+            <input placeholder="{{placeHolder}}" focus bindinput="getValue" value='{{keyword}}'></input>
+            <icon type="clear" size='13' bindtap='clear'></icon>
+        </view>
+        <view class='search-btn' bindtap='search'>搜索</view>
+    </view>
+    <view class='list'>
+        <view wx:if="{{!listShow}}" class='no-data'>
+            很抱歉，没有搜索到内容！
+        </view>
+         <block wx:for="{{models}}" wx:key="index">
+            <template is="{{tmpName}}" data="{{...item}}"></template>
+        </block> 
+    </view>
+    <view wx:if="{{moreShow}}" class='noMore'>没有更多内容</view>
+</view>

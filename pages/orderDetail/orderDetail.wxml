@@ -1,27 +1,50 @@
-<view class='header'>
-    <view class='img'>
-        <image src='../../img/fre.png'></image>
-    </view>
-    <view class='subject'>
-        <text>【云医院】挂号缴费</text>
-    </view>
-</view>
-<view class='separate'></view>
 <view class='detail-list'>
     <view class='flex justify-content-between first-line'>
-        <text class='text'>付款金额</text>
-        <text class='cost'>169.00</text>
+        <text class='text'>支付金额</text>
+        <text class='cost'>{{payAmount}}</text>
     </view>
      <view class='flex justify-content-between item'>
         <text class='text'>姓名</text>
-        <text class='text'>张雪梅</text>
+        <text class='text'>{{name}}</text>
     </view>
     <view class='flex justify-content-between item'>
-        <text class='text'>姓名</text>
-        <text class='text'>张雪梅</text>
+        <text class='text'>联系方式</text>
+        <text class='text'>{{phone}}</text>
     </view>
     <view class='flex justify-content-between item'>
-        <text class='text'>姓名</text>
-        <text class='text'>张雪梅</text>
+        <text class='text'>就诊卡号</text>
+        <text class='text'>{{cardNo}}</text>
+    </view>
+    <view class='flex justify-content-between item'>
+        <text class='text'>挂号时间</text>
+        <text class='text'>{{createTime}}</text>
+    </view>
+    <view class='flex justify-content-between item'>
+        <text class='text'>挂号医生</text>
+        <text class='text'>{{doctorName}}</text>
+    </view>
+    <view class='flex justify-content-between item'>
+        <text class='text'>挂号科室</text>
+        <text class='text'>{{deptName}}</text>
+    </view>
+    <view class='flex justify-content-between item'>
+        <text class='text'>预约时间</text>
+        <text class='text'>{{registrationTime}}</text>
+    </view>
+    <view class='flex justify-content-between item'>
+        <text class='text'>支付时间</text>
+        <text class='text'>{{payTime}}</text>
+    </view>
+    <view class='flex justify-content-between item'>
+        <text class='text'>支付方式</text>
+        <text class='text'>{{payMethod}}</text>
+    </view>
+     <view class='flex justify-content-between item'>
+        <text class='text'>诊前咨询图片</text>
+        <text class='text'>{{images ? '有' : '无'}}</text>
+    </view>
+    <view class='flex justify-content-between item'>
+        <text class='text'>主诉</text>
+        <text class='text'>{{illnessDescription ? illnessDescription : ''}}</text>
     </view>
 </view>

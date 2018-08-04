@@ -1,0 +1,82 @@
+<wxs module="filter" src="../../filter/filter.wxs"></wxs>
+<import src="../../templates/registerList.wxml" />
+
+<view class='container'>
+    <!-- 筛选框 -->
+    <view id="tab">
+        <view class="tab">
+            <view class="tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="tabNav">{{first}}
+                <image class="arrow-icon" src="{{currentTab==0 ? '../../img/top-arrow.png' : '../../img/down-arrow.png'}}"></image>
+            </view>
+            <view class="tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="tabNav">
+                {{second}}
+                <image class="arrow-icon" src="{{currentTab==1 ? '../../img/top-arrow.png' : '../../img/down-arrow.png'}}"></image>
+            </view>
+            <view class="tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="tabNav">{{thirds}}
+                <image class="arrow-icon" src="{{currentTab==2 ? '../../img/top-arrow.png' : '../../img/down-arrow.png'}}"></image>
+            </view>
+            <view class='search' bindtap='search'>
+                <image class="search-icon" src='../../img/search.png'></image>
+            </view>
+        </view>
+        <view class='tab-item' style='display:{{displays}}'>
+            <view class="filter {{currentTab==0 ? 'shown' : 'hidden'}}">
+                <view class="shaixuankuang ">
+                    <view class="shaixuan">
+                        <span class="shuaixuantiaojian">订单状态</span>
+                        <block wx:for="{{orderStatus}}" wx:key="index" wx:for-item="item">
+                            <view class="chose-txt {{item == tradeStatus ? 'chosed' : ''}}" data-name="{{item}}" bindtap="clickTrade">
+                                <text class="chose-p">{{item}}</text>
+                            </view>
+                        </block>
+                    </view>
+                    <view class="shaixuan">
+                        <span class="shuaixuantiaojian">挂号时间:</span>
+                        <view>
+                            <picker mode="date" value="{{createTimeStart}}" bindchange="startDateChange">
+                                <view class="payTime">
+                                    <text class="chose-p">{{createTimeStart}}</text>
+                                </view>
+                            </picker>
+                            <picker mode="date" value="{{createTimeEnd}}" bindchange="endDateChange">
+                                <view class="payTime">
+                                    <text class="chose-p">{{createTimeEnd}}</text>
+                                </view>
+                            </picker>
+                        </view>
+                    </view>
+                </view>
+                <view class="btn-group">
+                    <view class="reset" bindtap="reset">重置</view>
+                    <view class="queren" bindtap="submit">确定</view>
+                </view>
+            </view>
+
+            <view class="location_bottom {{currentTab==1 ? 'shown' : 'hidden'}}">
+                <block wx:for="{{payMethods}}" wx:key="index" wx:for-item="item">
+                    <view class="{{item.id == payMethod?'add-one':'add-all'}}" data-id="{{item.id}}" data-name="{{item.name}}" bindtap="clickMethod">
+                        {{item.name}}
+                    </view>
+                </block>
+            </view>
+            <view class="location_bottom {{currentTab==2 ? 'shown' : 'hidden'}}">
+                <block wx:for="{{payStatus}}" wx:key="index" wx:for-item="item">
+                    <view class="{{item.name == payStatuss?'add-one':'add-all'}}" data-name="{{item.name}}" bindtap="clickType">
+                        {{item.name}}</view>
+                </block>
+            </view>
+        </view>
+    </view>
+    <!-- 遮罩层 -->
+    <view class="swiper-beijing" bindtap="hideNav" style='display:{{displays}}'></view>
+    <!-- 订单列表 -->
+    <view class='list'>
+        <view wx:if="{{!listShow}}" class='no-data'>
+            很抱歉，没有搜索到内容！
+        </view>
+        <block wx:for="{{models}}" wx:key="index">
+            <template is="registerList" data="{{...item}}"></template>
+        </block>
+    </view>
+    <view wx:if="{{moreShow}}" class='noMore'>没有更多内容</view>
+</view>

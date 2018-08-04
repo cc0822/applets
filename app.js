@@ -6,7 +6,7 @@ App({
     },
     globalData: {
         
-        url: 'http://192.168.1.43:8094/manage/v1',
+        url: 'http://1.85.45.235:37009/manage/v1',
         token: {
             apiKey: '309dea40e47f447ca83efb6407cea0c9',
         },

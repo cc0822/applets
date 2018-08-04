@@ -28,7 +28,19 @@ function getToday() {
     return result;
 }
 
+
+function getOrderInfo(params) {
+    let orderParams = {};
+    if(params == '挂号订单') {
+        orderParams.orderUrl = '/order/registration/new/page';
+        orderParams.placeHolder = '请输入姓名/手机号/就诊卡号/医生/科室查询...';
+        orderParams.tmpName = 'registerList';
+        return orderParams;
+    }
+}
+
 module.exports = {
     dateFormat: dateFormat,
-    getToday: getToday
+    getToday: getToday,
+    getOrderInfo: getOrderInfo
 }

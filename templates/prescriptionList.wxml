@@ -1,0 +1,23 @@
+<wxs module="filter" src="../filter/filter.wxs"></wxs>
+
+<template name="prescriptionList">
+    <navigator url="{{'/pages/orderDetail/orderDetail?name='+visitorInfoName+'&cardNo='+cardNo+'&phone='+phone+'&createTime='+createTime+'&doctorName='+doctorName+'&deptName='+deptName+'&registrationTime='+registrationTime+'&payTime='+payTime+'&payAmount='+payAmount+'&payMethod='+payMethod+'&images='+images+'&illnessDescription='+illnessDescription}}">
+        <view class='list-item'>
+            <view class='base-info'>
+                <text class='name' decode="{{true}}">{{visitorInfoName}}&nbsp;&nbsp;&nbsp;&nbsp;</text>
+                <text class='subject' decode="{{true}}">{{cardNo}}&nbsp;&nbsp;&nbsp;&nbsp;</text>
+                <text class='cost'>{{phone}}</text>
+            </view>
+            <view class='base-info'>
+                <text class='name' decode="{{true}}">{{doctorName}}&nbsp;&nbsp;&nbsp;&nbsp;</text>
+                <text class='subject' decode="{{true}}">{{deptName}}&nbsp;&nbsp;&nbsp;&nbsp;</text>
+                <text class='cost'>{{createTime}}</text>
+            </view>
+            <view class='other-info'>
+                <text decode="{{true}}">{{registrationStatus.name}}&nbsp;&nbsp;&nbsp;&nbsp;</text>
+                <text decode="{{true}}">{{payStatuss.name}}&nbsp;&nbsp;&nbsp;&nbsp;</text>
+                <text>{{filter.timePeriodRender(registrationTime)}}</text>
+            </view>
+        </view>
+    </navigator>
+</template>

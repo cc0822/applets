@@ -70,15 +70,15 @@ Page({
     //登录
     login: function(data) {
         let that = this;
-        let tokenKey = data.tokenKey;
-        const userKey = data.userKey;
-        tokenKey = CryptoJS.enc.Utf8.parse(tokenKey);
-        that.data.password = CryptoJS.enc.Utf8.parse(that.data.password);
-        that.data.password = CryptoJS.AES.encrypt(that.data.password, tokenKey, {
-            iv: tokenKey,
-            mode: CryptoJS.mode.CBC,
-            padding: CryptoJS.pad.Pkcs7
-        }).toString();
+        // let tokenKey = data.tokenKey;
+        // const userKey = data.userKey;
+        // tokenKey = CryptoJS.enc.Utf8.parse(tokenKey);
+        // that.data.password = CryptoJS.enc.Utf8.parse(that.data.password);
+        // that.data.password = CryptoJS.AES.encrypt(that.data.password, tokenKey, {
+        //     iv: tokenKey,
+        //     mode: CryptoJS.mode.CBC,
+        //     padding: CryptoJS.pad.Pkcs7
+        // }).toString();
         wx.request({
             url: app.url + loginUrl,
             method: 'POST',
@@ -89,7 +89,7 @@ Page({
                 usernameOrPhone: that.data.user,
                 password: that.data.password,
                 loginType: 1,
-                userKey: userKey
+                // userKey: userKey
             },
             success: function (res) {
                 if (res.data.success) {

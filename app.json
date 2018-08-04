@@ -1,11 +1,15 @@
 {
-    "pages": [
-        "pages/order/order",
+    "pages": [      
         "pages/login/login",
         "pages/index/index",
         "pages/verifyList/verifyList",
         "pages/verify/verify",
+        "pages/order/order",
         "pages/orderDetail/orderDetail",
+        "pages/registerOrder/registerOrder",
+        "pages/consultOrder/consultOrder",
+        "pages/prescriptionOrder/prescriptionOrder",
+        "pages/checkOrder/checkOrder",
         "pages/fuzzySearch/fuzzySearch"
     ],
     "window": {
