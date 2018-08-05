@@ -44,8 +44,7 @@
     cursor: pointer;
 }
 .list{
-    margin-top:88rpx;
-    padding-left:30rpx;
+    padding:88rpx 0 0 30rpx;
     background:#fff;
 }
 .list-item{

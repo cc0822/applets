@@ -1,0 +1,49 @@
+<wxs module="filter" src="../filter/filter.wxs"></wxs>
+
+<template name="registerDetail">
+   
+  <view class='flex justify-content-between item'>
+    <text class='text'>姓名</text>
+    <text class='text'>{{name}}</text>
+  </view>
+  <view class='flex justify-content-between item'>
+    <text class='text'>联系方式</text>
+    <text class='text'>{{phone}}</text>
+  </view>
+  <view class='flex justify-content-between item'>
+    <text class='text'>就诊卡号</text>
+    <text class='text'>{{cardNo}}</text>
+  </view>
+  <view class='flex justify-content-between item'>
+    <text class='text'>挂号时间</text>
+    <text class='text'>{{createTime}}</text>
+  </view>
+  <view class='flex justify-content-between item'>
+    <text class='text'>挂号医生</text>
+    <text class='text'>{{doctorName}}</text>
+  </view>
+  <view class='flex justify-content-between item'>
+    <text class='text'>挂号科室</text>
+    <text class='text'>{{deptName}}</text>
+  </view>
+  <view class='flex justify-content-between item'>
+    <text class='text'>预约时间</text>
+    <text class='text'>{{filter.timePeriodRender(registrationTime)}}</text>
+  </view>
+  <view class='flex justify-content-between item'>
+    <text class='text'>支付时间</text>
+    <text class='text'>{{payTime}}</text>
+  </view>
+  <view class='flex justify-content-between item'>
+    <text class='text'>支付方式</text>
+    <text class='text'>{{filter.payMethodRender(payMethod)}}</text>
+  </view>
+  <view class='flex justify-content-between item'>
+    <text class='text'>诊前咨询图片</text>
+    <text class='text'>{{images ? '有' : '无'}}</text>
+  </view>
+  <view class='flex justify-content-between item'>
+    <text class='text'>主诉</text>
+    <text class='text'>{{illnessDescription ? illnessDescription : ''}}</text>
+  </view>
+</template>

@@ -1,8 +1,4 @@
-<!-- <wxs module="filter" src="../../filter/filter.wxs"></wxs>
-<import src="../../templates/checkList.wxml" />
-
-<view class='container'>
-   
+ <!-- 筛选框 -->
     <view id="tab">
         <view class="tab">
             <view class="tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="tabNav">{{first}}
@@ -67,16 +63,5 @@
             </view>
         </view>
     </view>
-    
+    <!-- 遮罩层 -->
     <view class="swiper-beijing" bindtap="hideNav" style='display:{{displays}}'></view>
-    
-    <view class='list'>
-        <view wx:if="{{!listShow}}" class='no-data'>
-            很抱歉，没有搜索到内容！
-        </view>
-        <block wx:for="{{models}}" wx:key="index">
-            <template is="checkList" data="{{...item}}"></template>
-        </block>
-    </view>
-    <view wx:if="{{moreShow}}" class='noMore'>没有更多内容</view>
-</view> -->

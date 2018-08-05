@@ -1,7 +1,7 @@
 <wxs module="filter" src="../filter/filter.wxs"></wxs>
 
 <template name="registerList">
-    <navigator url="{{'/pages/orderDetail/orderDetail?name='+visitorInfoName+'&cardNo='+cardNo+'&phone='+phone+'&createTime='+createTime+'&doctorName='+doctorName+'&deptName='+deptName+'&registrationTime='+registrationTime+'&payTime='+payTime+'&payAmount='+payAmount+'&payMethod='+payMethod+'&images='+images+'&illnessDescription='+illnessDescription}}">
+    <navigator url="{{'/pages/newDetail/newDetail?title=挂号订单&name='+visitorInfoName+'&cardNo='+cardNo+'&phone='+phone+'&createTime='+createTime+'&doctorName='+doctorName+'&deptName='+deptName+'&registrationTime='+registrationTime+'&payTime='+payTime+'&payAmount='+payAmount+'&payMethod='+payMethod+'&images='+images+'&illnessDescription='+illnessDescription}}">
         <view class='list-item'>
             <view class='base-info'>
                 <text class='name' decode="{{true}}">{{visitorInfoName}}&nbsp;&nbsp;&nbsp;&nbsp;</text>

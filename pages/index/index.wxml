@@ -1,5 +1,5 @@
 <view class="px-4">
-  <view class='list'>
+  <view class='page-list'>
     <view wx:for="{{routes}}" wx:key="index" wx:for-item="item">
         <navigator url="{{item.url}}" class='list-item'>
             <image class="check-img" src='{{item.imgSrc}}'></image>

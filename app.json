@@ -1,21 +1,22 @@
 {
-    "pages": [      
-        "pages/login/login",
-        "pages/index/index",
-        "pages/verifyList/verifyList",
-        "pages/verify/verify",
-        "pages/order/order",
-        "pages/orderDetail/orderDetail",
-        "pages/registerOrder/registerOrder",
-        "pages/consultOrder/consultOrder",
-        "pages/prescriptionOrder/prescriptionOrder",
-        "pages/checkOrder/checkOrder",
-        "pages/fuzzySearch/fuzzySearch"
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "朔维健康",
-        "navigationBarTextStyle": "black"
-    }
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/verifyList/verifyList",
+    "pages/verify/verify",
+    "pages/order/order",
+    "pages/orderDetail/orderDetail",
+    "pages/registerOrder/registerOrder",
+    "pages/consultOrder/consultOrder",
+    "pages/prescriptionOrder/prescriptionOrder",
+    "pages/checkOrder/checkOrder",
+    "pages/fuzzySearch/fuzzySearch",
+    "pages/newDetail/newDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "朔维健康",
+    "navigationBarTextStyle": "black"
+  }
 }

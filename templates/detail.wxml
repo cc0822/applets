@@ -1,0 +1,8 @@
+<wxs module="filter" src="../filter/filter.wxs"></wxs>
+
+<template name="detail"> 
+  <view class='flex justify-content-between item' wx:for="{{models}}" wx:for-index='key'>
+    <text class='text'>{{key}}</text>
+     <text class='text'>{{item}}</text>
+  </view>
+</template>

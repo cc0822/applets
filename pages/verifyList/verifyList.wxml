@@ -1,22 +1,20 @@
 <import src="../../templates/verifyList.wxml" />
 
 <view class='container'>
-    <view class='search'>
-        <view class="search-input">
-            <icon type="search" size='13'></icon>
-            <input placeholder="请输入姓名/身份证号查询..." focus bindinput="getValue" value='{{searchValue}}'></input>
-            <icon type="clear" size='13' bindtap='clear'></icon>
-        </view>
-        <view class='search-btn' bindtap='search'>搜索</view>
+  <view class='search'>
+    <view class="search-input">
+      <icon type="search" size='13'></icon>
+      <input placeholder="请输入姓名/身份证号查询..." focus bindinput="getValue" value='{{searchValue}}'></input>
+      <icon type="clear" size='13' bindtap='clear'></icon>
     </view>
-    <view class='list'>
-        <scroll-view scroll-y="true" bindscrolltolower="onLoadMore" class='mt-2'>
-            <view wx:if="{{!listShow}}" class='text-center'>
-                <text class='not-data'>很抱歉，没有找到您要搜索的内容！</text>
-            </view>
-            <block wx:for="{{models}}" wx:key="index">
-                <template is="verifyList" data="{{...item}}"></template>
-            </block>
-        </scroll-view>
+    <view class='search-btn' bindtap='search'>搜索</view>
+  </view>
+  <view class='list'>
+    <view wx:if="{{!listShow}}" class='text-center'>
+      <text class='not-data'>很抱歉，没有找到您要搜索的内容！</text>
     </view>
+    <block wx:for="{{models}}" wx:key="index">
+      <template is="verifyList" data="{{...item}}"></template>
+    </block>
+  </view>
 </view>

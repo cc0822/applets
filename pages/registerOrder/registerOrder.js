@@ -15,7 +15,7 @@ Page({
         createTimeStart: filter.getToday(),
         createTimeEnd: '',
         //数据字典
-        orderStatus: app.orderStatus,
+        orderStatus: app.regOrderStatus,
         payMethods: app.payMethods,
         payStatus: app.payStatus,
         
@@ -105,6 +105,7 @@ Page({
     onLoad: function (options) {
 
     },
+    //模糊搜索
     search: function (e) {
         wx.navigateTo({
             url: '../fuzzySearch/fuzzySearch?title=挂号订单',
@@ -144,6 +145,7 @@ Page({
                     if(data.length < 1){
                         that.setData({
                             listShow: false,
+                            moreShow: false,
                             models: []
                         })
                     }else {
@@ -154,7 +156,8 @@ Page({
                         });
                         that.setData({
                             models: arr,                          
-                            listShow: true
+                            listShow: true,
+                            moreShow: true,
                         });
                     }                   
                 } else {
@@ -189,7 +192,7 @@ Page({
                         const data = res.data.data.models;
                         if (data.length < 1) {
                             that.setData({
-                                moreShow: true
+                                moreShow: true                         
                             });
                         } else {
                             const arr = [];

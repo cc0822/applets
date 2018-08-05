@@ -1,0 +1,6 @@
+<wxs module="filter" src="../../filter/filter.wxs"></wxs>
+<import src="../../templates/detail.wxml" />
+
+<view class='detail-list'>
+  <template is="detail" data="{{models}}"></template>   
+</view>

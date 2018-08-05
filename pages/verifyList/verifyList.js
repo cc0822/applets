@@ -9,7 +9,7 @@ Page({
         models: [],
         list: []
     },
-
+    page:0,
     onLoad: function() {
         let that = this;
         wx.request({
@@ -20,7 +20,7 @@ Page({
             }),
             data: {
                 page: 0,
-                size: 1000
+                size: 10000
             },
             success: function(res) {
                 const data = res.data.data.models;
@@ -65,9 +65,51 @@ Page({
             listShow: true
         })
     },
-
-    onLoadMore: function() {
-
-    }
-
+  //上拉加载更多
+  // onReachBottom: function () {
+  //   if (!this.data.moreShow) {
+  //     var that = this;
+  //     const { payMethod, payStatuss, tradeStatus, createTimeStart, createTimeEnd } = that.data;
+  //     const params = { payMethod, payStatuss, tradeStatus, createTimeStart, createTimeEnd };
+  //     wx.showLoading({
+  //       title: '玩命加载中',
+  //     })
+  //     that.page += 1;
+  //     wx.request({
+  //       url: `${app.url}${orderUrl}?size=20&page=${that.page}`,
+  //       method: 'POST',
+  //       header: Object.assign(app.token, {
+  //         'content-type': 'application/json'
+  //       }),
+  //       data: params,
+  //       success: function (res) {
+  //         if (res.data.success) {
+  //           const data = res.data.data.models;
+  //           if (data.length < 1) {
+  //             that.setData({
+  //               moreShow: true
+  //             });
+  //           } else {
+  //             const arr = [];
+  //             data.forEach(item => {
+  //               item.createTime = filter.dateFormat(item.createTime);
+  //               arr.push(item);
+  //             });
+  //             that.setData({
+  //               moreShow: false,
+  //               models: that.data.models.concat(arr)
+  //             });
+  //           }
+  //         } else {
+  //           wx.showToast({
+  //             title: res.data.message,
+  //             icon: 'none',
+  //             duration: 2000
+  //           })
+  //         }
+  //         wx.hideLoading();
+  //       }
+  //     })
+  //   }
+  // }
 })

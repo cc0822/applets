@@ -14,9 +14,9 @@ var Equal = {
 //支付状态处理
 var payTypeFr = {
     payTypeRender: function(payType) {
-        if (payType === 1) {
+        if (payType == 1) {
             return '扣费';
-        } else if (payType === 2) {
+        } else if (payType == 2) {
             return '冻结';
         } else {
             return '';
@@ -26,13 +26,13 @@ var payTypeFr = {
 //支付方式处理
 var payMethodFr = {
     payMethodRender: function(payMethod) {
-        if (payMethod === 1) {
+        if (payMethod == 1) {
             return '账户余额';
-        } else if (payMethod === 2) {
+        } else if (payMethod == 2) {
             return '微信';
-        } else if (payMethod === 3) {
+        } else if (payMethod == 3) {
             return '支付宝';
-        } else if (payMethod === 4) {
+        } else if (payMethod == 4) {
             return '银联';
         } else {
             return '';
@@ -42,9 +42,9 @@ var payMethodFr = {
 //收款方处理
 var payAccountFr = {
     payAccountRender: function(payAccount){
-        if (payAccount === 1) {
+        if (payAccount == 1) {
             return '一附院';
-        } else if (payAccount === 2) {
+        } else if (payAccount == 2) {
             return '朔维健康';
         } else {
             return '';
@@ -54,13 +54,13 @@ var payAccountFr = {
 //退款状态处理
 var refundStatusFr = {
     refundStatusRender: function(refundStatus){
-        if (refundStatus === 1) {
+        if (refundStatus == 1) {
             return '未退款';
-        } else if (refundStatus === 2) {
+        } else if (refundStatus == 2) {
             return '退款中';
-        } else if (refundStatus === 3) {
+        } else if (refundStatus == 3) {
             return '部分退款';
-        } else if (refundStatus === 4) {
+        } else if (refundStatus == 4) {
             return '全额退款';
         } else {
             return '';
